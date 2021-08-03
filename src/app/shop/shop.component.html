@@ -1,1 +1,10 @@
-<p>shop works!</p>
+<div>
+    <h1>Shops Available</h1>
+    <hr>
+    <ul>
+        <li **ngFor="let shop of shops">
+            {{shop.name}}
+            <app-shop-detail [shop] = 'shop'></app-shop-detail>
+        </li>
+    </ul>
+</div>
