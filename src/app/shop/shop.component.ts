@@ -9,11 +9,11 @@ import { Shop } from '../shop';
 export class ShopComponent implements OnInit {
 
   shops : Shop[] = [
-    {id: 1, name: 'La Ratatulie', description: 'For the best Italian cuisines'},
-    {id: 2, name: 'Mama Nyama', description: 'Need your chomas hot, we got you covered.'},
-    {id: 3, name: 'Americana Hotel', description: 'Nothing Tastes better than American Burgers..'},
-    {id: 4, name: 'Tamu Tamu Dishes', description: 'Get an experience of the Coast in your plate'},
-    {id: 5, name: 'Purple Hibiscus Hotel', description: 'Wanna go natural, try our drinks.. Best served cold'},
+    new Shop(1, 'La Ratatulie', 'For the best Italian cuisines'),
+    new Shop(2, 'Mama Nyama', 'Need your chomas hot, we got you covered.'),
+    new Shop (3, 'Americana Hotel', 'Nothing Tastes better than American Burgers..'),
+    new Shop (4, 'Tamu Tamu Dishes', 'Get an experience of the Coast in your plate'),
+    new Shop (5, 'Purple Hibiscus Hotel', 'Wanna go natural, try our drinks.. Best served cold'),
   ];
 
   constructor() { }

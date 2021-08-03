@@ -1,10 +1,18 @@
 <div>
-    <h1>Shops Available</h1>
-    <hr>
-    <ul>
-        <li **ngFor="let shop of shops">
-            {{shop.name}}
-            <app-shop-detail [shop] = 'shop'></app-shop-detail>
-        </li>
-    </ul>
+  <h1>Shops Available</h1>
+  <hr>
+  <ul>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <li *ngFor="let shop of shops">
+              {{shop.name}}
+              <app-shop-detail [shop]='shop'></app-shop-detail>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ul>
 </div>
