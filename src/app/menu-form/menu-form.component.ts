@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Menu } from '../menu';
 
 @Component({
   selector: 'app-menu-form',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-form.component.css']
 })
 export class MenuFormComponent implements OnInit {
-
+   newMenu = new Menu(0, '', '');
+   @Output() addMenu = new EventEmitter<Menu>();
+   // tslint:disable-next-line:typedef
+   submitMenu(){
+     this.addMenu.emit(this.newMenu);
+   }
   constructor() { }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line:typedef
+  ngOnInit(){
   }
 
 }

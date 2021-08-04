@@ -6,18 +6,14 @@
   <div class="row">
     <div class="col-md-6">
       <div *ngFor='let menu of menus;let i = index'>
-        <div>
-          <h6 id={{i}} appStrikethrough>{{menu.name}} due on {{menu.completeDate|date|uppercase}}</h6>
-          <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
-        </div>
 
         <div *ngIf='menu.showDescription'>
-          <app-goal-detail  [menu]='menu' (isComplete) = 'deleteMenu($event,i)'></app-menu-detail>
+          <app-menu-detail  [menu]='menu' (isComplete) = 'deleteMenu($event,i)'></app-menu-detail>
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <app-menu-form></app-menu-form>
+      <app-menu-form (addMenu)="addNewMenu($event)"></app-menu-form>
     </div>
   </div>
 </div>
