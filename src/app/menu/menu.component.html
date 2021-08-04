@@ -4,7 +4,7 @@
   <ul>
     <div class="row">
       <div class="col-md-5">
-        <div *ngFor="let shop of menus, let i = index">
+        <div *ngFor="let menu of menus, let i = index">
           <div class="card">
             <div class="card-body">
               <div>
@@ -22,7 +22,7 @@
 
       </div>
       <div class="col-md-6">
-        <app-menu-form (addShop)="addNewMenu($event)"></app-menu-form>
+        <app-menu-form (addMenu)="addNewMenu($event)"></app-menu-form>
       </div>
     </div>
   </ul>
