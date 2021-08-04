@@ -1,19 +1,29 @@
-<!-- <p>menu works!</p> -->
-<div class="container">
-  <h1>OUR MENU</h1>
+<div>
+  <h1>MENU</h1>
   <hr>
+  <ul>
+    <div class="row">
+      <div class="col-md-5">
+        <div *ngFor="let shop of menus, let i = index">
+          <div class="card">
+            <div class="card-body">
+              <div>
 
-  <div class="row">
-    <div class="col-md-6">
-      <div *ngFor='let menu of menus;let i = index'>
+                <h4 id= {{i}}>{{menu.name}}</h4>
+              </div>
 
-        <div *ngIf='menu.showDescription'>
-          <app-menu-detail  [menu]='menu' (isComplete) = 'deleteMenu($event,i)'></app-menu-detail>
+              <div>
+                <app-menu-detail [menu]='menu' (isComplete) = 'deleteMenu($event,i)'></app-menu-detail>
+              </div>
+
+            </div>
+          </div>
         </div>
+
+      </div>
+      <div class="col-md-6">
+        <app-menu-form (addShop)="addNewMenu($event)"></app-menu-form>
       </div>
     </div>
-    <div class="col-md-6">
-      <app-menu-form (addMenu)="addNewMenu($event)"></app-menu-form>
-    </div>
-  </div>
+  </ul>
 </div>
