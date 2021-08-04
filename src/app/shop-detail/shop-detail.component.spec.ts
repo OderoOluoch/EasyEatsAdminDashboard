@@ -1,25 +1,25 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { ShopDetailComponent } from './shop-detail.component';
+import { ShopDetailComponent } from './shop-detail.component';
 
-// describe('ShopDetailComponent', () => {
-//   let component: ShopDetailComponent;
-//   let fixture: ComponentFixture<ShopDetailComponent>;
+describe('ShopDetailComponent', () => {
+  let component: ShopDetailComponent;
+  let fixture: ComponentFixture<ShopDetailComponent>;
 
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       declarations: [ ShopDetailComponent ]
-//     })
-//     .compileComponents();
-//   });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ ShopDetailComponent ]
+    })
+    .compileComponents();
+  });
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(ShopDetailComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ShopDetailComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

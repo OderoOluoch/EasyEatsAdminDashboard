@@ -1,25 +1,25 @@
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { ShopFormComponent } from './shop-form.component';
+import { ShopFormComponent } from './shop-form.component';
 
-// describe('ShopFormComponent', () => {
-//   let component: ShopFormComponent;
-//   let fixture: ComponentFixture<ShopFormComponent>;
+describe('ShopFormComponent', () => {
+  let component: ShopFormComponent;
+  let fixture: ComponentFixture<ShopFormComponent>;
 
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       declarations: [ ShopFormComponent ]
-//     })
-//     .compileComponents();
-//   });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ ShopFormComponent ]
+    })
+    .compileComponents();
+  });
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(ShopFormComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ShopFormComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
