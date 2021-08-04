@@ -19,7 +19,8 @@ export class MenuDetailComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line:typedef
+  ngOnInit(){
   }
 
 }
