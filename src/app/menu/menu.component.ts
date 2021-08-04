@@ -8,12 +8,12 @@ import { Menu } from '../menu';
 })
 export class MenuComponent implements OnInit {
   menus: Menu[] = [
-    new Menu(1, 'Watch finding Nemo', 'Find an online version and watch merlin find his son'),
-    new  Menu(2, 'Buy Cookies', 'I have to buy cookies for the parrot'),
-    new  Menu(3, 'Get new Phone Case', 'Diana has her birthday coming up soon'),
-    new  Menu(4, 'Get Dog Food', 'Pupper likes expensive snacks'),
-    new  Menu(5, 'Solve math homework', 'Damn Math'),
-    new  Menu(6, 'Plot my world domination plan', 'Cause I am an evil overlord'),
+    new Menu(1, 'BreakFast', 'A healthy start to the day.'),
+    new  Menu(2, 'Lunch', 'Flavorsome Lunch To Keep You Going'),
+    new  Menu(3, 'Soft Drinks', 'enjoy our drinks made of  light and refreshing with all the flavors of a Shirley Temple you love'),
+    new  Menu(4, 'Desserts', 'Bringing you your favorite desserts'),
+    new  Menu(5, 'Snacks', 'The taste that you will definitely admire.'),
+    new  Menu(6, 'DINNER', 'Hasty and tasty!'),
   ];
 
 menu: Menu[] = [

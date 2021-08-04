@@ -1,0 +1,29 @@
+<!-- <div>
+  <h1>Restaurants Available</h1>
+  <hr>
+  <ul>
+    <div class="row">
+      <div class="col-md-5">
+        <div *ngFor="let shop of shops, let i = index">
+          <div class="card">
+            <div class="card-body">
+              <div>
+
+                <h4 id= {{i}}>{{shop.name}}</h4>
+              </div>
+
+              <div>
+                <app-shop-detail [shop]='shop' (isComplete) = 'deleteShop($event,i)'></app-shop-detail>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <app-shop-form (addShop)="addNewShop($event)"></app-shop-form>
+      </div>
+    </div>
+  </ul>
+</div> -->

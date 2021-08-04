@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Menu } from '../menu';
 
 @Component({
   selector: 'app-menu-detail',
@@ -6,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-detail.component.css']
 })
 export class MenuDetailComponent implements OnInit {
+
+
+    @Input () menu: Menu;
+  @Output () isComplete = new EventEmitter<boolean>();
+
+  // tslint:disable-next-line:typedef
+  menuDelete(complete: boolean){
+    this.isComplete.emit(complete);
+  }
 
   constructor() { }
 
