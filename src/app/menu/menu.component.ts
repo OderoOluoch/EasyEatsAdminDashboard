@@ -16,16 +16,26 @@ export class MenuComponent implements OnInit {
     new  Menu(6, 'DINNER', 'Hasty and tasty!'),
   ];
 
-menu: Menu[] = [
-  new Menu(1, 'string', 'description')
-];
-// tslint:disable-next-line:typedef
-addNewMenu(menu){
-  const menuLength = this.menus.length;
-  menu.id = menuLength + 1;
-  // goal.completeDate = new Date(goal.completeDate)
-  this.menus.push(menu);
-}
+
+
+    // tslint:disable-next-line:typedef
+    deleteMenu(isComplete: any, index: any){
+    if (isComplete){
+      const toDelete = confirm(`Do you want to delete this ${this.menus[index].name}?`);
+
+      if (toDelete){
+        this.menus.splice(index, 1);
+      }
+    }
+  }
+
+  // tslint:disable-next-line:typedef
+  addNewMenu(menu: Menu) {
+    const menulength  = this.menus.length;
+    menu.id = menulength + 1;
+    // shop.name = shop
+    this.menus.push(menu);
+  }
   constructor() { }
 
   // tslint:disable-next-line:typedef
