@@ -8,7 +8,7 @@ import { Shop } from '../shop';
 })
 export class ShopComponent implements OnInit {
 
-  shops : Shop[] = [
+  shops: Shop[] = [
     new Shop(1, 'La Ratatulie', 'For the best Italian cuisines'),
     new Shop(2, 'Mama Nyama', 'Need your chomas hot, we got you covered.'),
     new Shop (3, 'Americana Hotel', 'Nothing Tastes better than American Burgers..'),
@@ -16,21 +16,23 @@ export class ShopComponent implements OnInit {
     new Shop (5, 'Purple Hibiscus Hotel', 'Wanna go natural, try our drinks.. Best served cold'),
   ];
 
+  // tslint:disable-next-line:typedef
   deleteShop(isComplete: any, index: any){
-    if(isComplete){
-      let toDelete = confirm(`Are you sure you want to delete ${this.shops[index].name}?`)
+    if (isComplete){
+      const toDelete = confirm(`Are you sure you want to delete ${this.shops[index].name}?`);
 
-      if(toDelete){
-        this.shops.splice(index,1)
+      if (toDelete){
+        this.shops.splice(index, 1);
       }
     }
   }
 
+  // tslint:disable-next-line:typedef
   addNewShop(shop: Shop) {
-    let shoplength  = this.shops.length;
-    shop.id = shoplength+1;
+    const shoplength  = this.shops.length;
+    shop.id = shoplength + 1;
     // shop.name = shop
-    this.shops.push(shop)
+    this.shops.push(shop);
   }
   constructor() { }
 

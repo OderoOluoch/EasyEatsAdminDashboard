@@ -11,6 +11,7 @@ export class ShopFormComponent implements OnInit {
   newShop = new Shop (0, '', '');
   @Output() addShop = new EventEmitter<Shop>();
 
+  // tslint:disable-next-line:typedef
   submitShop(){
     this.addShop.emit(this.newShop);
   }
