@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { Shop } from './shop'
+import { from } from 'rxjs';
+import { MenuComponent } from './menu/menu.component';
+import { Shop } from './shop';
+
+// import { Shop } from './shop';
 
 @Component({
   selector: 'app-root',
