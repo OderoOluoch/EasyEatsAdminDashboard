@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Shop } from '../shop';
 
 @Component({
@@ -9,6 +9,11 @@ import { Shop } from '../shop';
 export class ShopDetailComponent implements OnInit {
   
   @Input () shop : Shop;
+  @Output () isComplete = new EventEmitter<boolean>()
+
+  shopDelete(complete:boolean){
+    this.isComplete.emit(complete);
+  }
 
   constructor() { }
 

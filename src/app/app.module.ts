@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { ShopFormComponent } from './shop-form/shop-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ShopFormComponent } from './shop-form/shop-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
