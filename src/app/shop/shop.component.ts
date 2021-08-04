@@ -9,11 +9,11 @@ import { Shop } from '../shop';
 export class ShopComponent implements OnInit {
 
   shops : Shop[] = [
-    new Shop(1, 'La Ratatulie', 'For the best Italian cuisines'),
-    new Shop(2, 'Mama Nyama', 'Need your chomas hot, we got you covered.'),
-    new Shop (3, 'Americana Hotel', 'Nothing Tastes better than American Burgers..'),
-    new Shop (4, 'Tamu Tamu Dishes', 'Get an experience of the Coast in your plate'),
-    new Shop (5, 'Purple Hibiscus Hotel', 'Wanna go natural, try our drinks.. Best served cold'),
+    new Shop('La Ratatulie', 'For the best Italian cuisines'),
+    new Shop('Mama Nyama', 'Need your chomas hot, we got you covered.'),
+    new Shop ('Americana Hotel', 'Nothing Tastes better than American Burgers..'),
+    new Shop ('Tamu Tamu Dishes', 'Get an experience of the Coast in your plate'),
+    new Shop ('Purple Hibiscus Hotel', 'Wanna go natural, try our drinks.. Best served cold'),
   ];
 
   deleteShop(isComplete: any, index: any){
@@ -26,10 +26,9 @@ export class ShopComponent implements OnInit {
     }
   }
 
-  addNewShop(shop: Shop) {
-    let shoplength  = this.shops.length;
-    shop.id = shoplength+1;
-    // shop.name = shop
+  addNewShop (shop: Shop){
+    let shopLength = this.shops.length;
+    shop.id = shopLength+1;
     this.shops.push(shop)
   }
   constructor() { }
