@@ -14,11 +14,11 @@ export class AppComponent {
   constructor(private api: GetApiService){
   }
 
-// tslint:disable-next-line:use-lifecycle-interface
-ngOnInit(): void{
+ngOnInit(){
   this.api.apiCall().subscribe((data) => {
     console.log('get api data', data);
-
+    // tslint:disable-next-line:no-string-literal
+    this.title = data['title'];
   });
 }
 }
