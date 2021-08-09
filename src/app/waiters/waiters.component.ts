@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GetApiService} from '../get-api.service'
 
 @Component({
   selector: 'app-waiters',
