@@ -8,9 +8,15 @@ import {GetApiService} from '../get-api.service'
 })
 export class WaitersComponent implements OnInit {
 
-  constructor() { }
+  constructor(public getApiService: GetApiService) { }
 
+  waiterList: any;
   ngOnInit(): void {
+    this.waiterList = this.getApiService.apiCallwaiters().subscribe(data => {
+      this.waiterList = data;
+      
+
+    })
   }
 
 }
