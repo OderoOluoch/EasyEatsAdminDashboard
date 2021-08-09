@@ -12,10 +12,7 @@ export class MenuComponent implements OnInit {
     new  Menu(2, 'Lunch', 'Flavorsome Lunch To Keep You Going'),
     new  Menu(3, 'Soft Drinks', 'enjoy our drinks made of  light and refreshing with all the flavors of a Shirley Temple you love'),
     new  Menu(4, 'Desserts', 'Bringing you your favorite desserts'),
-    new  Menu(5, 'Snacks', 'The taste that you will definitely admire.'),
-    new  Menu(6, 'DINNER', 'Hasty and tasty!'),
-  ];
-
+  ]
 
 
     // tslint:disable-next-line:typedef

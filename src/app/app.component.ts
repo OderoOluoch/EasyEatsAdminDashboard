@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { from } from 'rxjs';
 import { MenuComponent } from './menu/menu.component';
+import { WaitersComponent } from './waiters/waiters.component';
+
 import {GetApiService} from './get-api.service';
+
 // import { Shop } from './shop';
 
 @Component({
@@ -16,6 +19,12 @@ export class AppComponent {
 
 ngOnInit(){
   this.api.apiCall().subscribe((data) => {
+    console.log('get api data', data);
+    // tslint:disable-next-line:no-string-literal
+    this.title = data['title'];
+  });
+
+  this.api.apiCallwaiters().subscribe((data) => {
     console.log('get api data', data);
     // tslint:disable-next-line:no-string-literal
     this.title = data['title'];
