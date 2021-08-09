@@ -13,7 +13,8 @@ import {GetApiService} from './get-api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Call Api';
+   Api: any [] = [];
+  GetApiService: any;
   constructor(private api: GetApiService){
   }
 
@@ -33,11 +34,4 @@ ngOnInit(){
 }
 
 
-// tslint:disable-next-line:typedef
-// function ngOnInit() {
-//   throw new Error('Function not implemented.');
-// }
-// function ngOnInit() {
-//   throw new Error('Function not implemented.');
-// }
 
