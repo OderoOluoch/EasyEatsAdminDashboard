@@ -11,6 +11,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { ShopFormComponent } from './shop-form/shop-form.component';
 import {HttpClientModule} from '@angular/common/http';
+import { WaitersComponent } from './waiters/waiters.component';
 
 // import {GetApiService} from './get-api.service';
 @NgModule({
@@ -21,7 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
     MenuDetailComponent,
     ShopComponent,
     ShopDetailComponent,
-    ShopFormComponent
+    ShopFormComponent,
+    WaitersComponent
   ],
   imports: [
     BrowserModule,
