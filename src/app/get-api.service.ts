@@ -6,9 +6,7 @@ import {HttpClient} from '@angular/common/http';
 export class GetApiService {
   HttpClient: any;
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
   // tslint:disable-next-line:typedef
   apiCall(){
     return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/shops');
