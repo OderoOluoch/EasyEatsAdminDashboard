@@ -14,9 +14,8 @@ export class WaitersComponent implements OnInit {
   ngOnInit(): void {
     this.waiterList = this.getApiService.apiCallwaiters().subscribe(data => {
       this.waiterList = data;
-      
 
-    })
+    });
   }
 
 }
