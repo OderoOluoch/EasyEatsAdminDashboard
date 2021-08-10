@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class GetApiService {
+  HttpClient: any;
 
   constructor(
     private http: HttpClient
@@ -17,7 +18,7 @@ export class GetApiService {
     return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/waiters');
   }
 
-  addWaiter(){
-    
+  addWaiter(createResourse){
+    return this.HttpClient.post('https://easyeatsodero.herokuapp.com/api/v1/waiters/new', createResourse )
   }
 }
