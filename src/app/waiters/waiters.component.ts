@@ -9,7 +9,7 @@ import {GetApiService} from '../get-api.service'
 export class WaitersComponent implements OnInit {
 
   constructor(public getApiService: GetApiService) { }
-
+  msgTrue = false;
   waiterList: any;
   ngOnInit(): void {
     this.waiterList = this.getApiService.apiCallwaiters().subscribe(data => {
@@ -22,8 +22,13 @@ export class WaitersComponent implements OnInit {
 
     //mock the form data
     const newFormData = {name: 'leon'};
+    this.getApiService.addWaiter(newFormData).subscribe(data=>{
+      console.log(data)
+     this.msgTrue = true;
+
+    })
   
     }
   }
 
-}
+
