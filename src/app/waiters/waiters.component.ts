@@ -18,5 +18,9 @@ export class WaitersComponent implements OnInit {
 
     })
   }
+  addWaiter(){
+    const newFormData ={name:"leon" };
+    this.getApiService.addWaiter(newFormData)
+  }
 
 }
