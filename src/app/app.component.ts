@@ -15,6 +15,7 @@ import {GetApiService} from './get-api.service';
 export class AppComponent {
    Api: any [] = [];
   GetApiService: any;
+  title: any;
   constructor(private api: GetApiService){
   }
 
