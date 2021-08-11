@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { from } from 'rxjs';
 import { MenuComponent } from './menu/menu.component';
-import { Shop } from './shop';
+import { WaitersComponent } from './waiters/waiters.component';
+
+import {GetApiService} from './get-api.service';
 
 // import { Shop } from './shop';
 
@@ -11,12 +13,25 @@ import { Shop } from './shop';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'EasyEatsDashboard';
-  shops : Shop[] = [
-    new Shop('La Ratatulie', 'For the best Italian cuisines'),
-    new Shop('Mama Nyama', 'Need your chomas hot, we got you covered.'),
-    new Shop ('Americana Hotel', 'Nothing Tastes better than American Burgers..'),
-    new Shop ('Tamu Tamu Dishes', 'Get an experience of the Coast in your plate'),
-    new Shop ('Purple Hibiscus Hotel', 'Wanna go natural, try our drinks.. Best served cold'),
-  ];
+   Api: any [] = [];
+  GetApiService: any;
+  constructor(private api: GetApiService){
+  }
+
+ngOnInit(){
+  this.api.apiCall().subscribe((data) => {
+    console.log('get api data', data);
+    // tslint:disable-next-line:no-string-literal
+    this.title = data['title'];
+  });
+
+  this.api.apiCallwaiters().subscribe((data) => {
+    console.log('get api data', data);
+    // tslint:disable-next-line:no-string-literal
+    this.title = data['title'];
+  });
 }
+}
+
+
+
