@@ -1,5 +1,38 @@
 {
     "cSpell.words": [
         "Callmenu"
+    ],
+    "cSpell.ignoreWords": [
+        "add",
+        "app",
+        "available",
+        "body",
+        "card",
+        "class",
+        "col",
+        "complete",
+        "delete",
+        "detail",
+        "div",
+        "event",
+        "for",
+        "form",
+        "h",
+        "hr",
+        "i",
+        "id",
+        "index",
+        "is",
+        "let",
+        "md",
+        "name",
+        "new",
+        "ng",
+        "of",
+        "restaurants",
+        "row",
+        "shop",
+        "shops",
+        "ul"
     ]
 }

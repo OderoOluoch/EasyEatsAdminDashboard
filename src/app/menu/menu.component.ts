@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { GetApiService } from '../get-api.service';
 import { Menu } from '../menu';
 
@@ -38,13 +39,13 @@ export class MenuComponent implements OnInit {
   constructor( private getApiService: GetApiService) { }
 
   ngOnInit(): void {
-      this.getApiService.apiCall().subscribe((response: any) => {
-         this.menus =  response;
-         console.log(this.menus);
+    this.getApiService.apiCallmenu().subscribe((response: any) => {
+       this.menus =  response;
+       console.log(this.menus);
 
-        // tslint:disable-next-line:no-string-literal
+      // tslint:disable-next-line:no-string-literal
 
-      });
-    }
+    });
+  }
   }
 
