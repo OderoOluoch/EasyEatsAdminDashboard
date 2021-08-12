@@ -62,35 +62,35 @@
 <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Add Menu Category</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
-      </button>
+      </button> -->
     </div>
     <div class="modal-body">
       <form #AddMenuCategoryForm="ngForm" (ngSubmit)="saveMenuCategury(name.value,description.value,shop_id.value)">
         <div class="form-group">
           <label for="name">Menu Name</label>
           <div class="input-group">
-            <input id="waiterName" class="form-control" #name="ngModel"  required >
+            <input id="waiterName" class="form-control"  name="name" #name="ngModel" [(ngModel)]="menu.name"  required >
           </div>
         </div>
         <div class="form-group">
             <label for="name">Menu Description</label>
             <div class="input-group">
-              <input id="waiterName" class="form-control" #description="ngModel"  required>
+              <input id="waiterName" class="form-control"  name="description" #description="ngModel"  [(ngModel)]="menu.description"  required>
             </div>
           </div>
           <div class="form-group">
             <label for="name">Your Shop Name</label>
-            <select class="form-select" aria-label="Default select example" >
+            <select class="form-select" aria-label="Default select example"  name="shop_id"  #shop_id="ngModel" [(ngModel)]="menu.shop_id" >
                 <option selected>Slect your shop name</option>
-                <option *ngFor="let shop of shops, let i = index" value="{{shop.id}}"  #shop_id="ngModel">{{shop.name}}</option>              </select>
+                <option *ngFor="let shop of shops, let i = index" value="{{shop.id}}"  >{{shop.name}}</option>              </select>
           </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-primary">Save</button>
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+      <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+      <button  type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click');saveMenuCategury(name.value,description.value,shop_id.value)">Submit</button>
     </div>
   </ng-template>
   

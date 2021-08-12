@@ -36,21 +36,16 @@ export class MenuComponent implements OnInit {
   resetForm(form? :NgForm){
     if(form != null )
     form.reset();
-    this.user = {
-      username:'',
-      email: '',
-      password1:'',
-      password2:'',
-      referral_code:'',
-      phone_number:'',
-      full_name:'',
-      device_details: '',
-      location: ''
+    this.menu = {
+      name:'',
+      description: '',
+      shop_id:null,
     }
   }
 
-  saveMenuCategury(){
-    console.log("I have been called ")
+  saveMenuCategury(name:string,description:string,shop_id:number){
+    this.dataService.createMenuItem(name,description,shop_id)
+    // console.log(name,description,shop_id);
   }
     
 
