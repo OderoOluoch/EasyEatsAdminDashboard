@@ -19,7 +19,8 @@ export class ShopComponent implements OnInit {
   // ];
   // getApiService: any;
   shops: any;
-
+// tslint:disable-next-line:ban-types
+name: string;
   // tslint:disable-next-line:typedef
   deleteShop(isComplete: any, index: any){
     if (isComplete){
@@ -35,7 +36,7 @@ export class ShopComponent implements OnInit {
   addNewShop(shop: Shop) {
     const shoplength  = this.shops.length;
     shop.id = shoplength + 1;
-    // shop.name = shop
+    // Shop.name = shop;
     this.shops.push(shop);
   }
   constructor( private getApiService: GetApiService) { }
