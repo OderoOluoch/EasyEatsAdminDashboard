@@ -5,23 +5,21 @@
                 <h3>Manage Menu Items</h3>
                 <button (click)="open(content)">Add Menu Item</button>
             </div>
+        
             <div class="card-body">
                 <div class="table-reponsive">
                     <table width="100%">
                         <thead>
                             <tr>
-                                <td>Project Title</td>
-                                <td>Department</td>
-                                <td>Status</td>
+                                <td>ID</td>
+                                <td>MENU NAME</td>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>UT/UX Design</td>
-                                <td>Ut team</td>
-                                <td>
-                                    <span class="status purple"></span>review
-                                </td>
+                            <tr *ngFor="let menu of menus, let i = index">
+                                <td id= {{i}}>{{menu.id}}</td>
+                                <td>{{menu.name}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -116,6 +114,8 @@
         </div>
     </div>
 </div>
+
+
 
 <ng-template #content let-modal>
     <div class="modal-header">

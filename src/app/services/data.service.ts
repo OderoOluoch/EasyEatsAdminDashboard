@@ -7,6 +7,7 @@ export class DataService {
   HttpClient: any;
 
   constructor(private http: HttpClient) { }
+  
 
  
   apiCallShops(){
@@ -25,7 +26,7 @@ export class DataService {
   addWaiter(createResourse){
     return this.HttpClient.post('https://easyeatsodero.herokuapp.com/api/v1/waiters/new', createResourse )
   }
-  // tslint:disable-next-line:typedef
+ 
 }
 
 
