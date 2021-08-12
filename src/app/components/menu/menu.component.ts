@@ -11,6 +11,7 @@ import { Menu } from '../../../app/models/menu';
 export class MenuComponent implements OnInit {
   closeResult:string;
   menus: any;
+  shops:any;
 
   constructor(private modalService:NgbModal,
     private dataService :DataService) { }
@@ -18,9 +19,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.apiCallMenus().subscribe((response: any) => {
       this.menus =  response;
-      console.log("Menu Items " + response);
-
    });
+
+   this.dataService.apiCallShops().subscribe((response:any) =>{
+     this.shops = response;
+     console.log(this.shops)
+   } )
   }
 
   open(content) {
