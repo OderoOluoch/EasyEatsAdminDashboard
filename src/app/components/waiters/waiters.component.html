@@ -16,18 +16,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Vivian Anyango</td>
+                            <tr *ngFor="let waiter of waiters, let i = index">
+                                <td>{{ waiter.id}}</td>
+                                <td>{{ waiter.name}}</td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Frontend</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Mobile Team</td>
-                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-waiters',
@@ -8,10 +9,16 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class WaitersComponent implements OnInit {
   closeResult:string;
+  waiters:any;
 
-  constructor(private modalService:NgbModal) { }
+  constructor(
+    private modalService:NgbModal,
+    private dataService:DataService) { }
 
   ngOnInit(): void {
+    this.dataService.apiCallwaiters().subscribe((response: any) => {
+      this.waiters =  response;
+   });
   }
 
   open(content) {
@@ -33,3 +40,4 @@ export class WaitersComponent implements OnInit {
   }
 
 }
+
