@@ -1,7 +1,21 @@
+
 <h3>List Of Waiters </h3>
 <ul> 
+
     <li *ngFor = "let waiter of waiterList">
         {{waiter.name}}
     </li>
 
 </ul>
+ <div class="container-fluid">
+    <h3>Add New Waiter</h3>
+    <div *ngIf="msgTrue">Waiter Added Successfully</div>
+    <hr>
+  <form  #addNewWaiterForm="ngForm" (submit) = "addWaiter"(addNewWaiterForm)>
+    <div class="form-group">
+
+        <label for="name">Name</label>
+        <input type="text" required class="form-control" id="name" name="name">
+    </div>
+    <button (click)= "addWaiter()" [disabled]= "!addNewWaiterForm.valid">Add Waiter</button>
+</form>

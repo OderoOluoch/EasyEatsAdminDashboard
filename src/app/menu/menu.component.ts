@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { GetApiService } from '../get-api.service';
 import { Menu } from '../menu';
 
@@ -8,13 +9,13 @@ import { Menu } from '../menu';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  menus: any;
   // menus: Menu[] = [
   //   new Menu(1, 'BreakFast', 'A healthy start to the day.'),
   //   new  Menu(2, 'Lunch', 'Flavorsome Lunch To Keep You Going'),
   //   new  Menu(3, 'Soft Drinks', 'enjoy our drinks made of  light and refreshing with all the flavors of a Shirley Temple you love'),
   //   new  Menu(4, 'Desserts', 'Bringing you your favorite desserts'),
-  // ]
+  // ];
+  menus: any;
 
 
     // tslint:disable-next-line:typedef
@@ -32,18 +33,19 @@ export class MenuComponent implements OnInit {
   addNewMenu(menu: Menu) {
     const menulength  = this.menus.length;
     menu.id = menulength + 1;
-    // shop.name = shop
     this.menus.push(menu);
   }
-  constructor(private getApiService: GetApiService) { }
+  constructor( private getApiService: GetApiService) { }
 
-  // tslint:disable-next-line:typedef
-  ngOnInit() {
-    this.getApiService.apiCallMenus().subscribe(response =>{
-      this.menus= response;
-      console.log(this.menus);
-    })
+  ngOnInit(): void {
+      this.getApiService.apiCallMenus().subscribe((response: any) => {
+         this.menus =  response;
+         console.log(this.menus);
 
+        // tslint:disable-next-line:no-string-literal
+
+      });
+    }
   }
 
-}
+
