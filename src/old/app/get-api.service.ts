@@ -27,33 +27,13 @@ export class GetApiService {
 
   apiCallMenus(){
     return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/menus');
-
+  }
 
   addWaiter(createResourse){
     return this.HttpClient.post('https://easyeatsodero.herokuapp.com/api/v1/waiters/new', createResourse )
-
-  // tslint:disable-next-line:typedef
-  apiCallMenus(){
-    return this.http.get('https:easyeatsodero.herokuapp.com/api/v1/menus');
-
   }
+  // tslint:disable-next-line:typedef
 }
-  // tslint:disable-next-line:typedef
-  // apiPostmenu(){
 
-  //   return this.http.post('https://easyeatsodero.herokuapp.com/api/v1/menus/new', {
-  //     menu: this.menu
-  //   });
-  //   }
-  // }
-  // tslint:disable-next-line:typedef
-  // tslint:disable-next-line:align
-  // apiMenu(); {
-  //   return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/menus');
-  // }
 
-// tslint:disable-next-line:typedef
-// function apiCallmenu() {
-//   throw new Error('Function not implemented.');
-// }
 
