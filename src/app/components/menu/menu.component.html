@@ -61,37 +61,36 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Add Waiter</h4>
+      <h4 class="modal-title" id="modal-basic-title">Add Menu Category</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <form>
+      <form #AddMenuCategoryForm="ngForm" (ngSubmit)="saveMenuCategury(name.value,description.value,shop_id.value)">
         <div class="form-group">
           <label for="name">Menu Name</label>
           <div class="input-group">
-            <input id="waiterName" class="form-control" >
+            <input id="waiterName" class="form-control" #name="ngModel"  required >
           </div>
         </div>
         <div class="form-group">
             <label for="name">Menu Description</label>
             <div class="input-group">
-              <input id="waiterName" class="form-control" >
+              <input id="waiterName" class="form-control" #description="ngModel"  required>
             </div>
           </div>
           <div class="form-group">
             <label for="name">Your Shop Name</label>
-            <select class="form-select" aria-label="Default select example" *ngFor="let shop of shops, let i = index">
+            <select class="form-select" aria-label="Default select example" >
                 <option selected>Slect your shop name</option>
-                <option value="1">{{shop.name}}</option>
- 
-              </select>
+                <option *ngFor="let shop of shops, let i = index" value="{{shop.id}}"  #shop_id="ngModel">{{shop.name}}</option>              </select>
           </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
     </div>
   </ng-template>
   
@@ -126,9 +125,9 @@
           <label for="name">Dish Parent Menu</label>
 
           <div class="input-group">
-            <select class="form-select" aria-label="Default select example" *ngFor="let menu of menus, let i = index">
+            <select class="form-select" aria-label="Default select example" >
               <option selected>Open this select menu</option>
-              <option value="1">{{menu.name}}</option>
+              <option *ngFor="let menu of menus, let i = index" value="1">{{menu.name}}</option>
 
             </select>
           </div>

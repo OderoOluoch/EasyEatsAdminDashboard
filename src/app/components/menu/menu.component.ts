@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from 'src/app/services/data.service';
 import { Menu } from '../../../app/models/menu';
@@ -10,6 +11,7 @@ import { Menu } from '../../../app/models/menu';
 })
 export class MenuComponent implements OnInit {
   closeResult:string;
+  menu:Menu = new Menu;
   menus: any;
   shops:any;
 
@@ -17,15 +19,41 @@ export class MenuComponent implements OnInit {
     private dataService :DataService) { }
 
   ngOnInit(): void {
+    this.resetForm();
     this.dataService.apiCallMenus().subscribe((response: any) => {
       this.menus =  response;
    });
+
+   
 
    this.dataService.apiCallShops().subscribe((response:any) =>{
      this.shops = response;
      console.log(this.shops)
    } )
   }
+
+
+  resetForm(form? :NgForm){
+    if(form != null )
+    form.reset();
+    this.user = {
+      username:'',
+      email: '',
+      password1:'',
+      password2:'',
+      referral_code:'',
+      phone_number:'',
+      full_name:'',
+      device_details: '',
+      location: ''
+    }
+  }
+
+  saveMenuCategury(){
+    console.log("I have been called ")
+  }
+    
+
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
