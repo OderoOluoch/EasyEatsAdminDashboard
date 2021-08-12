@@ -33,19 +33,19 @@ export class MenuComponent implements OnInit {
   addNewMenu(menu: Menu) {
     const menulength  = this.menus.length;
     menu.id = menulength + 1;
-    // shop.name = shop
     this.menus.push(menu);
   }
   constructor( private getApiService: GetApiService) { }
 
   ngOnInit(): void {
-    this.getApiService.apiCallmenu().subscribe((response: any) => {
-       this.menus =  response;
-       console.log(this.menus);
+      this.getApiService.apiCallMenus().subscribe((response: any) => {
+         this.menus =  response;
+         console.log(this.menus);
 
-      // tslint:disable-next-line:no-string-literal
+        // tslint:disable-next-line:no-string-literal
 
-    });
+      });
+    }
   }
-  }
+
 

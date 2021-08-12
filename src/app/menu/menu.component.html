@@ -1,5 +1,5 @@
-<!-- <div>
-  <h1>MENU</h1>
+<div>
+  <h1>menu</h1>
   <hr>
   <ul>
     <div class="row">
@@ -12,39 +12,7 @@
                 <h4 id= {{i}}>{{menu.name}}</h4>
               </div>
 
-              <div>
-                <app-menu-detail [menu]='menu' (isComplete) = 'deleteMenu($event,i)'></app-menu-detail>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="col-md-6">
-        <app-menu-form (addMenu)="addNewMenu($event)"></app-menu-form>
-      </div>
-    </div>
-  </ul>
-</div> -->
-<div>
-  <h1>menu</h1>
-  <hr>
-  <ul>
-    <div class="row">
-      <div class="col-md-5">
-        <div *ngFor="let menu of menus, let i = index">
-          <div class="card">
-            <div class="card-body">
-              <div>
-
-                <h4 id= {{i}}>{{<menu></menu>.name}}</h4>
-              </div>
-
-              <!-- <div>
-                <app-shop-detail [shop]='shop' (isComplete) = 'deleteShop($event,i)'></app-shop-detail>
-              </div> -->
-
+      
             </div>
           </div>
         </div>
