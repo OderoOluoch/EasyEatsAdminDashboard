@@ -3,7 +3,7 @@
   <hr>
   <div class="card">
     <div class="card-body">
-      <form (ngSubmit) = 'submitShop()' #shopForm = 'ngForm'>
+      <form (ngSubmit) = 'submitShop(shopname.value, description.value)' #shopForm = 'ngForm'>
         <div class="form-group">
           <label for="shop name">Shop name</label>
           <input type="text" class="form-control" id="name" [(ngModel)]= "newShop.name" #name = "ngModel" required>

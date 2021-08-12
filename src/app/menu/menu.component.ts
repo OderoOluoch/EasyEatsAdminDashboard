@@ -9,13 +9,9 @@ import { Menu } from '../menu';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  // menus: Menu[] = [
-  //   new Menu(1, 'BreakFast', 'A healthy start to the day.'),
-  //   new  Menu(2, 'Lunch', 'Flavorsome Lunch To Keep You Going'),
-  //   new  Menu(3, 'Soft Drinks', 'enjoy our drinks made of  light and refreshing with all the flavors of a Shirley Temple you love'),
-  //   new  Menu(4, 'Desserts', 'Bringing you your favorite desserts'),
-  // ];
   menus: any;
+  
+   constructor( private getApiService: GetApiService) { }
 
 
     // tslint:disable-next-line:typedef
@@ -35,7 +31,6 @@ export class MenuComponent implements OnInit {
     menu.id = menulength + 1;
     this.menus.push(menu);
   }
-  constructor( private getApiService: GetApiService) { }
 
   ngOnInit(): void {
       this.getApiService.apiCallMenus().subscribe((response: any) => {
@@ -46,6 +41,7 @@ export class MenuComponent implements OnInit {
 
       });
     }
+
   }
 
 

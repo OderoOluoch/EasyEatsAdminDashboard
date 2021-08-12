@@ -25,6 +25,9 @@ export class GetApiService {
     return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/waiters');
   }
 
+  apiCallMenus(){
+    return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/menus');
+
 
   addWaiter(createResourse){
     return this.HttpClient.post('https://easyeatsodero.herokuapp.com/api/v1/waiters/new', createResourse )

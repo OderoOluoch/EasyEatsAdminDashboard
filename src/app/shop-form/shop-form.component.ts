@@ -8,12 +8,12 @@ import { Shop } from '../shop';
 })
 export class ShopFormComponent implements OnInit {
 
-  newShop = new Shop (0, '', '');
-  @Output() addShop = new EventEmitter<Shop>();
+  newShop = new Shop ('', '');
+  @Output() addNewShop = new EventEmitter<Shop>();
 
   // tslint:disable-next-line:typedef
   submitShop(){
-    this.addShop.emit(this.newShop);
+    this.addNewShop.emit(this.newShop);
   }
 
   constructor() { }

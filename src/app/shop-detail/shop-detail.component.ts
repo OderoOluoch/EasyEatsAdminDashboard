@@ -15,6 +15,7 @@ export class ShopDetailComponent implements OnInit {
   shopDelete(complete: boolean){
     this.isComplete.emit(complete);
   }
+ZAe
 
   constructor() { }
 
