@@ -5,28 +5,39 @@ import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-waiters',
   templateUrl: './waiters.component.html',
-  styleUrls: ['./waiters.component.css']
+  styleUrls: ['./waiters.component.css'],
 })
 export class WaitersComponent implements OnInit {
-  closeResult:string;
-  waiters:any;
+  closeResult: string;
+  waiters: any;
+  shops: any;
 
   constructor(
-    private modalService:NgbModal,
-    private dataService:DataService) { }
+    private modalService: NgbModal,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
     this.dataService.apiCallwaiters().subscribe((response: any) => {
-      this.waiters =  response;
-   });
+      this.waiters = response;
+    });
+
+    this.dataService.apiCallShops().subscribe((response: any) => {
+      this.shops = response;
+    });
   }
 
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
   }
 
   private getDismissReason(reason: any): string {
@@ -38,6 +49,4 @@ export class WaitersComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
-
 }
-

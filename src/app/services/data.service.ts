@@ -31,6 +31,11 @@ export class DataService {
     );
   }
 
+  apiCallCuisines() {
+    return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/cuisines');
+  }
+
+
   apiCallShops() {
     return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/shops');
   }

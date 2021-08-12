@@ -38,16 +38,10 @@
             <div class="card-body">
                 <div class="customer">
                     <div class="info">
-                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
-                        <div>
-                            <h4> Lewis casper steven</h4>
-                            <small>CEO excerpt</small>
+                        <div *ngFor="let cuisine of cuisines, let i = index">
+                            <h4> Name : {{cuisine.name}}</h4>
+                            <small>Price: {{cuisine.price}} </small>
                         </div>
-                    </div>
-                    <div class="contact">
-                        <span class="las la-user-circle"></span>
-                        <span class="las la-comment"></span>
-                        <span class="las la-phone"></span>
                     </div>
                 </div>
 
@@ -67,7 +61,7 @@
       </button> -->
     </div>
     <div class="modal-body">
-      <form #AddMenuCategoryForm="ngForm" (ngSubmit)="saveMenuCategury(name.value,description.value,shop_id.value)">
+      <form #AddMenuCategoryForm="ngForm" >
         <div class="form-group">
           <label for="name">Menu Name</label>
           <div class="input-group">
@@ -108,7 +102,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <form>
+      <form #AddMenuCategoryForm="ngForm" >
         <div class="form-group">
           <label for="name">Dish Name</label>
           <div class="input-group">

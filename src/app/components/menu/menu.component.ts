@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
   menu:Menu = new Menu;
   menus: any;
   shops:any;
+  cuisines:any;
 
   constructor(private modalService:NgbModal,
     private dataService :DataService) { }
@@ -23,6 +24,10 @@ export class MenuComponent implements OnInit {
     this.dataService.apiCallMenus().subscribe((response: any) => {
       this.menus =  response;
    });
+
+   this.dataService.apiCallCuisines().subscribe((response: any) => {
+    this.cuisines =  response;
+ });
 
    
 
