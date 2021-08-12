@@ -12,4 +12,11 @@ export class CuisinesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+//   {
+//     "foodType":"Steamed Rice",
+//     "price" : 300 ,
+//     "menuId" : 1
+// }
+
 }

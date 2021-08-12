@@ -51,64 +51,6 @@
                     </div>
                 </div>
 
-                <div class="customer">
-                    <div class="info">
-                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
-                        <div>
-                            <h4> Lewis casper steven</h4>
-                            <small>CEO excerpt</small>
-                        </div>
-                    </div>
-                    <div class="contact">
-                        <span class="las la-user-circle"></span>
-                        <span class="las la-comment"></span>
-                        <span class="las la-phone"></span>
-                    </div>
-                </div>
-                <div class="customer">
-                    <div class="info">
-                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
-                        <div>
-                            <h4> Lewis casper steven</h4>
-                            <small>CEO excerpt</small>
-                        </div>
-                    </div>
-                    <div class="contact">
-                        <span class="las la-user-circle"></span>
-                        <span class="las la-comment"></span>
-                        <span class="las la-phone"></span>
-                    </div>
-                </div>
-                <div class="customer">
-                    <div class="info">
-                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
-                        <div>
-                            <h4> Lewis casper steven</h4>
-                            <small>CEO excerpt</small>
-                        </div>
-                    </div>
-                    <div class="contact">
-                        <span class="las la-user-circle"></span>
-                        <span class="las la-comment"></span>
-                        <span class="las la-phone"></span>
-                    </div>
-                </div>
-
-                <div class="customer">
-                    <div class="info">
-                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
-                        <div>
-                            <h4> Lewis casper steven</h4>
-                            <small>CEO excerpt</small>
-                        </div>
-                    </div>
-                    <div class="contact">
-                        <span class="las la-user-circle"></span>
-                        <span class="las la-comment"></span>
-                        <span class="las la-phone"></span>
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -155,7 +97,7 @@
   
 
   
-  <pre>{{ closeResult }}</pre>
+  <!-- <pre>{{ closeResult }}</pre> -->
 
 
 
@@ -169,15 +111,26 @@
     <div class="modal-body">
       <form>
         <div class="form-group">
-            <label for="name">Dish Parent Menu</label>
-            <div class="input-group">
-              <input id="waiterName" class="form-control" >
-            </div>
-          </div>
-        <div class="form-group">
           <label for="name">Dish Name</label>
           <div class="input-group">
             <input id="waiterName" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Dish Price</label>
+          <div class="input-group">
+            <input id="waiterName" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Dish Parent Menu</label>
+
+          <div class="input-group">
+            <select class="form-select" aria-label="Default select example" *ngFor="let menu of menus, let i = index">
+              <option selected>Open this select menu</option>
+              <option value="1">{{menu.name}}</option>
+
+            </select>
           </div>
         </div>
       </form>
