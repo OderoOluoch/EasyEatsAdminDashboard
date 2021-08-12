@@ -17,6 +17,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FirebaseService } from './services/firebase.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ShopComponent } from './components/shop/shop.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,9 +34,11 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
+    ShopComponent,
 
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp({

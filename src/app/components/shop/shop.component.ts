@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { GetApiService } from '../get-api.service';
-import { Shop } from '../../../app/models/shop';
+import { DataService } from 'src/app/services/data.service';
+import { Shop } from '../../models/shop';
 
 @Component({
   selector: 'app-shop',
@@ -9,11 +8,10 @@ import { Shop } from '../../../app/models/shop';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-
-
-  shops: any;
-
+shops: any;
 name: string;
+
+constructor( private dataService: DataService) { }
 
   deleteShop(isComplete: any, index: any){
     if (isComplete){
@@ -30,17 +28,13 @@ name: string;
     shop.id = shoplength + 1;
     this.shops.push(shop);
   }
-  constructor( private getApiService: GetApiService) { }
+ 
 
   ngOnInit(): void {
-      this.getApiService.apiCall().subscribe((response: any) => {
+      this.dataService.apiCallShops().subscribe((response: any) => {
          this.shops =  response;
          console.log(this.shops);
-
-        // tslint:disable-next-line:no-string-literal
 
       });
     }
   }
-
-

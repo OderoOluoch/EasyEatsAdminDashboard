@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Shop } from '../shop';
+import { Shop } from '../../../app/models/shop';
 
 @Component({
   selector: 'app-shop-form',
