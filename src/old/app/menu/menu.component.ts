@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GetApiService } from '../get-api.service';
-import { Menu } from '../menu';
+import { Menu } from '../../../app/models/menu';
 
 @Component({
   selector: 'app-menu',

@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FirebaseService } from './services/firebase.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ShopComponent } from './components/shop/shop.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
+    ShopComponent,
 
   ],
   imports: [
