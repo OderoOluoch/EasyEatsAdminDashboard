@@ -1,0 +1,46 @@
+<!-- <section class="login">
+    <div class="conatiner">
+      <div class="row content">
+        <div class="col-md-6 mb-3">
+          <div class="text-center">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3 class="signin mb-3">Register</h3>
+          <form #userLoginForm="ngForm" (ngSubmit)="register(username.value,password1.value)">
+            <div class="mb-3">
+              <label for="username" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                #email="ngModel"
+                [(ngModel)]="user.username"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password1" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                #password1="ngModel"
+                [(ngModel)]="user.password1"
+                required
+              />
+            </div>
+          
+              <button type="submit" class="btn btn-primary">Register</button>
+            </form>     
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <div>
+      <h2>Register</h2>
+      <input type="email" #emailRegister/>
+      <input type="password" #passwordRegister />
+      <button (click)="onRegister(emailRegister.value,passwordRegister.value)">Register</button>
+  </div>
