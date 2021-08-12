@@ -1,0 +1,178 @@
+<div class="recent-grid">
+    <div class="projects">
+        <div class="card">
+            <div class="card-header">
+                <h3>Manage Menu Items</h3>
+                <button (click)="open(content)">Add Menu Item</button>
+            </div>
+            <div class="card-body">
+                <div class="table-reponsive">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>Project Title</td>
+                                <td>Department</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>UT/UX Design</td>
+                                <td>Ut team</td>
+                                <td>
+                                    <span class="status purple"></span>review
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="customers">
+        <div class="card">
+            <div class="card-header">
+                <h3>Cuisines</h3>
+
+                <button (click)="open(contentTwo)">Add Cuisines</button>
+            </div>
+            <div class="card-body">
+                <div class="customer">
+                    <div class="info">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
+                        <div>
+                            <h4> Lewis casper steven</h4>
+                            <small>CEO excerpt</small>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <span class="las la-user-circle"></span>
+                        <span class="las la-comment"></span>
+                        <span class="las la-phone"></span>
+                    </div>
+                </div>
+
+                <div class="customer">
+                    <div class="info">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
+                        <div>
+                            <h4> Lewis casper steven</h4>
+                            <small>CEO excerpt</small>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <span class="las la-user-circle"></span>
+                        <span class="las la-comment"></span>
+                        <span class="las la-phone"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                    <div class="info">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
+                        <div>
+                            <h4> Lewis casper steven</h4>
+                            <small>CEO excerpt</small>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <span class="las la-user-circle"></span>
+                        <span class="las la-comment"></span>
+                        <span class="las la-phone"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                    <div class="info">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
+                        <div>
+                            <h4> Lewis casper steven</h4>
+                            <small>CEO excerpt</small>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <span class="las la-user-circle"></span>
+                        <span class="las la-comment"></span>
+                        <span class="las la-phone"></span>
+                    </div>
+                </div>
+
+                <div class="customer">
+                    <div class="info">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F970x450%2Fgetty_482141135_47013.jpg&f=1&nofb=1" width="40px" height="40px" alt="">
+                        <div>
+                            <h4> Lewis casper steven</h4>
+                            <small>CEO excerpt</small>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <span class="las la-user-circle"></span>
+                        <span class="las la-comment"></span>
+                        <span class="las la-phone"></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Waiter</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="name">Menu Name</label>
+          <div class="input-group">
+            <input id="waiterName" class="form-control" >
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+
+  
+  <pre>{{ closeResult }}</pre>
+
+
+
+  <ng-template #contentTwo let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Cuisine</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+            <label for="name">Dish Parent Menu</label>
+            <div class="input-group">
+              <input id="waiterName" class="form-control" >
+            </div>
+          </div>
+        <div class="form-group">
+          <label for="name">Dish Name</label>
+          <div class="input-group">
+            <input id="waiterName" class="form-control" >
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+
+  
+  <pre>{{ closeResult }}</pre>

@@ -1,6 +1,15 @@
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <h2><span></span> <span>EasyEats</span></h2>
+    </div>
 
-<app-menu></app-menu>
-
-<app-shop></app-shop> -->
-
-<app-waiters></app-waiters>
+    <app-side-bar-menu></app-side-bar-menu>
+    
+</div>
+<div class="main-content">
+    <app-header></app-header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+</div>

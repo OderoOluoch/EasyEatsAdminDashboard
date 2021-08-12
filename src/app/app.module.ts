@@ -1,39 +1,55 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuFormComponent } from './menu-form/menu-form.component';
-import { MenuComponent } from './menu/menu.component';
-import { MenuDetailComponent } from './menu-detail/menu-detail.component';
+import { WaitersComponent } from './components/waiters/waiters.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { CuisinesComponent } from './components/cuisines/cuisines.component';
+import { OrderTypeComponent } from './components/order-type/order-type.component';
+import { SideBarMenuComponent } from './components/side-bar-menu/side-bar-menu.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { FirebaseService } from './services/firebase.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 
-import { ShopComponent } from './shop/shop.component';
-import { ShopDetailComponent } from './shop-detail/shop-detail.component';
-import { ShopFormComponent } from './shop-form/shop-form.component';
-import {HttpClientModule} from '@angular/common/http';
-import { WaitersComponent } from './waiters/waiters.component';
-import { GetApiService } from './get-api.service';
-
-// import {GetApiService} from './get-api.service';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuFormComponent,
+    WaitersComponent,
+    OrdersComponent,
     MenuComponent,
-    MenuDetailComponent,
-    ShopComponent,
-    ShopDetailComponent,
-    ShopFormComponent,
-    WaitersComponent
+    CuisinesComponent,
+    OrderTypeComponent,
+    SideBarMenuComponent,
+    HeaderComponent,
+    HomeComponent,
+    RegisterComponent,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyBMXnSq-4n2iL2QgP4-e6RjNCTwiqxCMxA",
+      authDomain: "easyeatsdashboard.firebaseapp.com",
+      projectId: "easyeatsdashboard",
+      storageBucket: "easyeatsdashboard.appspot.com",
+      messagingSenderId: "760201614501",
+      appId: "1:760201614501:web:c797789332639d90ad294c",
+      measurementId: "G-60PSHNTD1E"
+    }),
+    NgbModule,
+    FormsModule
   ],
-  providers: [GetApiService],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
