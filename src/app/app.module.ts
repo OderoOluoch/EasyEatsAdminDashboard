@@ -13,6 +13,7 @@ import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { ShopFormComponent } from './shop-form/shop-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { WaitersComponent } from './waiters/waiters.component';
+import { GetApiService } from './get-api.service';
 
 // import {GetApiService} from './get-api.service';
 @NgModule({
@@ -32,7 +33,7 @@ import { WaitersComponent } from './waiters/waiters.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [GetApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
