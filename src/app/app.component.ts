@@ -23,13 +23,13 @@ ngOnInit(){
   this.api.apiCall().subscribe((data) => {
     console.log('get api data', data);
     // tslint:disable-next-line:no-string-literal
-    this.title = data['title'];
+    // this.title = data['title'];
   });
 
   this.api.apiCallwaiters().subscribe((data) => {
     console.log('get api data', data);
     // tslint:disable-next-line:no-string-literal
-    this.title = data['title'];
+    // this.title = data['title'];
   });
 }
 }
