@@ -30,8 +30,8 @@ import { GetApiService } from './get-api.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
-    HttpClientModule
   ],
   providers: [GetApiService],
   bootstrap: [AppComponent]
