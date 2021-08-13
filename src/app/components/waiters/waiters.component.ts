@@ -16,6 +16,8 @@ export class WaitersComponent implements OnInit {
     private modalService:NgbModal,
     private dataService:DataService) { }
 
+    msgTrue =false;
+
   ngOnInit(): void {
     this.dataService.apiCallwaiters().subscribe((response: any) => {
       this.waiters =  response;
@@ -40,12 +42,19 @@ export class WaitersComponent implements OnInit {
     }
   }
 
-  addNewWaiter(){
+  addNewWaiter(form){
 
     //mocking the form data
     const newFormData = {id : 2, name : "sarah" , shop_id : 0}
+//dynamic data from form
+    console.log(form.value.name)
+    console.log(form.value.id)
+    console.log(form.value.shop_id)
+
     this.dataService.createWaiters(newFormData).subscribe(data => {
-      
+    console.log(data);
+      this.msgTrue= true;
+
     });
 
 
