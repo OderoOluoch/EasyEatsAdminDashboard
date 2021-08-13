@@ -22,8 +22,8 @@ export class DataService {
     httpHeaders.append('content-type',  'application/json')
     return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/waiters');
   }
-  createWaiters(){
-    return this.HttpClient.post('https://easyeatsodero.herokuapp.com/api/v1/waiters/new')
+  createWaiters(createResourse){
+    return this.HttpClient.post('https://easyeatsodero.herokuapp.com/api/v1/waiters/new', createResourse);
 
   }
 
