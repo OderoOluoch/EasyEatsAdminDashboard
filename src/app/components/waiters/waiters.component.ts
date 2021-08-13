@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵbypassSanitizationTrustHtml } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -37,6 +38,17 @@ export class WaitersComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  addNewWaiter(){
+
+    //mocking the form data
+    const newFormData = {id : 2, name : "sarah" , shop_id : 0}
+    this.dataService.createWaiters(newFormData).subscribe(data => {
+      
+    });
+
+
   }
 
 }
