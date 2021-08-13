@@ -1,6 +1,6 @@
 import { Component, OnInit, ɵbypassSanitizationTrustHtml } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
+// import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -30,6 +30,19 @@ export class WaitersComponent implements OnInit {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+
+     //mocking the form data
+     const newFormData = {id : 2, name : "sarah" , shop_id : 0}
+     //dynamic data from form
+         console.log(content.value.name)
+         console.log(content.value.id)
+         console.log(content.value.shop_id)
+     
+         this.dataService.createWaiters(newFormData).subscribe(data => {
+         console.log(data);
+           this.msgTrue= true;
+     
+         });
   }
 
   private getDismissReason(reason: any): string {
@@ -42,23 +55,23 @@ export class WaitersComponent implements OnInit {
     }
   }
 
-  addNewWaiter(form){
+//   addNewWaiter(form){
 
-    //mocking the form data
-    const newFormData = {id : 2, name : "sarah" , shop_id : 0}
-//dynamic data from form
-    console.log(form.value.name)
-    console.log(form.value.id)
-    console.log(form.value.shop_id)
+//     //mocking the form data
+//     const newFormData = {id : 2, name : "sarah" , shop_id : 0}
+// //dynamic data from form
+//     console.log(form.value.name)
+//     console.log(form.value.id)
+//     console.log(form.value.shop_id)
 
-    this.dataService.createWaiters(newFormData).subscribe(data => {
-    console.log(data);
-      this.msgTrue= true;
+//     this.dataService.createWaiters(newFormData).subscribe(data => {
+//     console.log(data);
+//       this.msgTrue= true;
 
-    });
+//     });
 
 
-  }
+  // }
 
 }
 

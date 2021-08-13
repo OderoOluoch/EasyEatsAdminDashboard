@@ -4,8 +4,9 @@
             <div class="card-header">
                 <h3>Manage Waiters</h3>
                <div *ngIf= 'msgTrue'>Waiters Added Successfully</div>
-                <!-- <button (click)="open(content)">Add Waiter</button> -->
-                <button (click)="addNewWaiter">Add Waiter</button>
+           
+                <button (click)="open(content)">Add Waiter</button>
+                <!-- <button (click)="addNewWaiter">Add Waiter</button> -->
 
             </div >
             <div class="card-body">
@@ -72,11 +73,23 @@
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label for="name">Waiter Name</label>
+          <label for="name">Waiter Id</label>
           <div class="input-group">
             <input id="waiterName" class="form-control" >
           </div>
         </div>
+        <div class="form-group">
+            <label for="name">Waiter Name</label>
+            <div class="input-group">
+              <input id="waiterName" class="form-control" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Shop id</label>
+            <div class="input-group">
+              <input id="waiterName" class="form-control" >
+            </div>
+          </div>
       </form>
     </div>
     <div class="modal-footer">
