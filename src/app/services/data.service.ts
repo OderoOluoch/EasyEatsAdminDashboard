@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import { type } from 'os';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,9 @@ export class DataService {
 
   
   apiCallwaiters(){
+    //headers
+    const httpHeaders = new HttpHeaders();
+    httpHeaders.append('content-type',  'application/json')
     return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/waiters');
   }
 
