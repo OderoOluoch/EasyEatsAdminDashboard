@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataService } from 'src/app/services/data.service';
 import { Menu } from '../../../app/models/menu';
@@ -10,22 +11,49 @@ import { Menu } from '../../../app/models/menu';
 })
 export class MenuComponent implements OnInit {
   closeResult:string;
+  menu:Menu = new Menu;
   menus: any;
   shops:any;
+  cuisines:any;
 
   constructor(private modalService:NgbModal,
     private dataService :DataService) { }
 
   ngOnInit(): void {
+    this.resetForm();
     this.dataService.apiCallMenus().subscribe((response: any) => {
       this.menus =  response;
    });
+
+   this.dataService.apiCallCuisines().subscribe((response: any) => {
+    this.cuisines =  response;
+ });
+
+   
 
    this.dataService.apiCallShops().subscribe((response:any) =>{
      this.shops = response;
      console.log(this.shops)
    } )
   }
+
+
+  resetForm(form? :NgForm){
+    if(form != null )
+    form.reset();
+    this.menu = {
+      name:'',
+      description: '',
+      shop_id:null,
+    }
+  }
+
+  saveMenuCategury(name:string,description:string,shop_id:number){
+    this.dataService.createMenuItem(name,description,shop_id)
+    // console.log(name,description,shop_id);
+  }
+    
+
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuFormComponent } from './menu-form/menu-form.component';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from 'src/app/components/menu/menu.component';
 import { MenuDetailComponent } from './menu-detail/menu-detail.component';
 
 
@@ -13,7 +13,7 @@ import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { ShopFormComponent } from './shop-form/shop-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { WaitersComponent } from './waiters/waiters.component';
-import { GetApiService } from './get-api.service';
+import { DataService } from 'src/app/services/data.service';
 
 // import {GetApiService} from './get-api.service';
 @NgModule({
@@ -33,7 +33,7 @@ import { GetApiService } from './get-api.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [GetApiService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
