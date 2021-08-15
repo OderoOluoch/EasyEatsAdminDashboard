@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Cuisine } from 'src/app/models/cuisine';
 import { DataService } from 'src/app/services/data.service';
 import { Menu } from '../../../app/models/menu';
+import { finalize } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-cuisines',
@@ -17,9 +20,9 @@ export class CuisinesComponent implements OnInit {
   menus: any;
   shops: any;
   cuisines: any;
-  imgSrc:string = "/assets/img/dif.jpg"
-  selectedImage:any = null;
-  isSubmited:boolean = false;
+  imgSrc:string;
+  selectedImage:any;
+  isSubmited:boolean;
 
   formTemplate = new FormGroup({
     foodType: new FormControl('',Validators.required),
@@ -30,11 +33,12 @@ export class CuisinesComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
+    private storage:AngularFireStorage,
     private dataService: DataService
   ) {}
 
   ngOnInit(): void {
-    // this.resetForm();
+    this.resetForm();
     this.dataService.apiCallMenus().subscribe((response: any) => {
       this.menus = response;
     });
@@ -63,25 +67,36 @@ export class CuisinesComponent implements OnInit {
 
   onSubmit(formValue){
     this.isSubmited = true;
+    if(this.formTemplate.valid){
+        var filePath = `cuisines/${this.selectedImage.name}_${new Date().getTime()}`
+        const fileRef = this.storage.ref(filePath);
+        this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+          finalize(()=>{
+            fileRef.getDownloadURL().subscribe((url)=>{
+              formValue['image']=url;
+            })
+          })
+        ).subscribe();
+    }
   }
 
   get formContols(){
     return this.formTemplate['controls'];
   }
 
-  // resetForm(form?: NgForm) {
-  //   if (form != null) form.reset();
-  //   this.menu = {
-  //     name: '',
-  //     description: '',
-  //     shop_id: null,
-  //   };
-  // }
+  resetForm(){
+    this.formTemplate.reset();
+    this.formTemplate.setValue({
+      foodType: '',
+      image: '',
+      price: null,
+      menu_id:1,
+    });
+    this.imgSrc = "/assets/img/dif.jpg";
+    this.isSubmited = false;
+    this.selectedImage = null;
+  }
 
-  // saveMenuCategury(name: string, description: string, shop_id: number) {
-  //   this.dataService.createMenuItem(name, description, shop_id);
-  //   // console.log(name,description,shop_id);
-  // }
 
   open(content) {
     this.modalService
