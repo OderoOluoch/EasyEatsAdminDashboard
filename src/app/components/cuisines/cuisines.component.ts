@@ -7,7 +7,6 @@ import { DataService } from 'src/app/services/data.service';
 import { Menu } from '../../../app/models/menu';
 import { finalize } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-cuisines',
   templateUrl: './cuisines.component.html',
@@ -20,21 +19,21 @@ export class CuisinesComponent implements OnInit {
   menus: any;
   shops: any;
   cuisines: any;
-  
-  imgSrc:string;
-  selectedImage:any;
-  isSubmited:boolean;
+
+  imgSrc: string;
+  selectedImage: any;
+  isSubmited: boolean;
 
   formTemplate = new FormGroup({
-    foodType: new FormControl('',Validators.required),
-    image: new FormControl('',Validators.required),
-    price: new FormControl('',Validators.required),
-    menu_id: new FormControl('',Validators.required),
+    foodType: new FormControl('', Validators.required),
+    image: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required),
+    menu_id: new FormControl('', Validators.required),
   });
 
   constructor(
     private modalService: NgbModal,
-    private storage:AngularFireStorage,
+    private storage: AngularFireStorage,
     private dataService: DataService
   ) {}
 
@@ -50,54 +49,62 @@ export class CuisinesComponent implements OnInit {
 
     this.dataService.apiCallShops().subscribe((response: any) => {
       this.shops = response;
-      console.log(this.shops);
     });
   }
 
-  showPreview(event:any){
-    if(event.target.files && event.target.files[0]){
+  showPreview(event: any) {
+    if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      reader.onload = (e:any) => this.imgSrc = e.target.result;
+      reader.onload = (e: any) => (this.imgSrc = e.target.result);
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
-    }else{
-      this.imgSrc = "/assets/img/dif.jpg";
+    } else {
+      this.imgSrc = '/assets/img/dif.jpg';
       this.selectedImage = null;
     }
   }
 
-  onSubmit(formValue){
+  onSubmit(formValue) {
     this.isSubmited = true;
-    if(this.formTemplate.valid){
-        var filePath = `cuisines/${this.selectedImage.name}_${new Date().getTime()}`
-        const fileRef = this.storage.ref(filePath);
-        this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
-          finalize(()=>{
-            fileRef.getDownloadURL().subscribe((url)=>{
-              formValue['image']=url;
-            })
+    if (this.formTemplate.valid) {
+      var filePath = `cuisines/${this.selectedImage.name
+        .split('.')
+        .slice(0, -1)
+        .join('.')}_${new Date().getTime()}`;
+      const fileRef = this.storage.ref(filePath);
+      this.storage
+        .upload(filePath, this.selectedImage)
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            fileRef.getDownloadURL().subscribe((url) => {
+              formValue['image'] = url;
+              this.dataService.addCuisine(formValue);
+              console.log("What is inside this form "+formValue)
+            });
           })
-        ).subscribe();
+        )
+        .subscribe();
+        console.log("What is inside this form B"+formValue)
     }
   }
 
-  get formContols(){
+  get formControl() {
     return this.formTemplate['controls'];
   }
 
-  resetForm(){
+  resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
       foodType: '',
       image: '',
       price: null,
-      menu_id:1,
+      menu_id: 1,
     });
-    this.imgSrc = "/assets/img/dif.jpg";
+    this.imgSrc = '/assets/img/dif.jpg';
     this.isSubmited = false;
     this.selectedImage = null;
   }
-
 
   open(content) {
     this.modalService

@@ -33,7 +33,6 @@ export class MenuComponent implements OnInit {
 
    this.dataService.apiCallShops().subscribe((response:any) =>{
      this.shops = response;
-     console.log(this.shops)
    } )
   }
 
@@ -50,7 +49,6 @@ export class MenuComponent implements OnInit {
 
   saveMenuCategury(name:string,description:string,shop_id:number){
     this.dataService.createMenuItem(name,description,shop_id)
-    // console.log(name,description,shop_id);
   }
     
 
