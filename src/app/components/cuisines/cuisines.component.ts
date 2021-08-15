@@ -80,7 +80,7 @@ export class CuisinesComponent implements OnInit {
             fileRef.getDownloadURL().subscribe((url) => {
               formValue['image'] = url;
               this.dataService.addCuisine(formValue);
-              console.log("What is inside this form "+formValue)
+              console.log("What is inside this form "+formValue['image'])
             });
           })
         )

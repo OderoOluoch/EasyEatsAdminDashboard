@@ -1,1 +1,123 @@
-<p>shop works!</p>
+<div class="recent-grid">
+  <div class="projects">
+    <div class="card">
+      <div class="card-header">
+        <h3>Register an Outlet</h3>
+        <button (click)="open(content)">Add Outlet</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Register a Table</h3>
+        <button (click)="open(contentTwo)">Add Table</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="customers">
+    <div class="card">
+      <div class="card-header">
+        <h3>Detail</h3>
+      </div>
+      <div class="card-body">
+        <!-- <div class="customer">
+                    <div class="info">
+                        <div *ngFor="let cuisine of cuisines, let i = index">
+                            <h4> Name : {{cuisine.name}}</h4>
+                            <small>Price: {{cuisine.price}} </small>
+                        </div>
+                    </div>
+                </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Outlet Name</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #AddMenuCategoryForm="ngForm">
+      <div class="form-group">
+        <label for="name">Outlet Name</label>
+        <div class="input-group">
+          <input
+            id="waiterName"
+            class="form-control"
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="menu.name"
+            required
+          />
+        </div>
+      </div> 
+    </form>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      (click)="
+        modal.close('Save click');
+        saveMenuCategury(name.value, description.value, shop_id.value)
+      "
+    >
+      Submit
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #contentTwo let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Table</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #AddMenuCategoryForm="ngForm">
+      <div class="form-group">
+        <label for="name">Table Name</label>
+        <div class="input-group">
+          <input
+            id="waiterName"
+            class="form-control"
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="menu.name"
+            required
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      (click)="
+        modal.close('Save click');
+        saveMenuCategury(name.value, description.value, shop_id.value)
+      "
+    >
+      Submit
+    </button>
+  </div>
+</ng-template>
