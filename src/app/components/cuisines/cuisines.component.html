@@ -59,40 +59,45 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #AddMenuCategoryForm="ngForm" >
+    <form [FormGroup]="formTemplate" >
+      <div class="text-center">
+        <img src="" width="350px" height="250px"> 
+      </div>
       <div class="form-group">
         <label for="name">Dish Name</label>
         <div class="input-group">
-          <input id="waiterName" class="form-control" >
+          <input type="text"class="form-control" formControlName="foodType" placeholder="e.g Chips Kuku" >
         </div>
       </div>
       <div class="form-group">
         <label>Select Image file to upload</label>
-        <input type="file" accept="image/*" class="form-control"  >
-        <div class="text-danger" >This field is required</div>
+        <input type="file" accept="image/*" class="form-control" formControlName="image"    >
+        <!-- <div class="text-danger" >This field is required</div> -->
     </div>
       <div class="form-group">
         <label for="name">Dish Price</label>
         <div class="input-group">
-          <input id="waiterName" class="form-control" >
+          <input class="form-control" formControlName="price" >
         </div>
       </div>
       <div class="form-group">
         <label for="name">Dish Parent Menu</label>
-
         <div class="input-group">
-          <select class="form-select" aria-label="Default select example" >
-            <option selected>Open this select menu</option>
-            <option *ngFor="let menu of menus, let i = index" value="1">{{menu.name}}</option>
-
+          <select class="form-select" formControlName="menu_id" >
+            <!-- <option selected>Select menu from drop down.</option> -->
+            <option *ngFor="let menu of menus, let i = index" value="{{menu.id}}">{{menu.name}}</option>
           </select>
         </div>
       </div>
+      <div class="form-group">
+          <button type="submit" class="btn btn-warning float-right">Submit</button>
+      </div>
+
     </form>
   </div>
-  <div class="modal-footer">
+  <!-- <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-  </div>
+  </div> -->
 </ng-template>
   
 
