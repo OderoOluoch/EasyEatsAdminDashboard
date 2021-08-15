@@ -15,11 +15,12 @@ import { finalize } from 'rxjs/operators';
 })
 export class CuisinesComponent implements OnInit {
   closeResult: string;
-  menu: Menu = new Menu();
-  cuisine: Cuisine = new Cuisine();
+  //menu: Menu = new Menu();
+  //cuisine: Cuisine = new Cuisine();
   menus: any;
   shops: any;
   cuisines: any;
+  
   imgSrc:string;
   selectedImage:any;
   isSubmited:boolean;

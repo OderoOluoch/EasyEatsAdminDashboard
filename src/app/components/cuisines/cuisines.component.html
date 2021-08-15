@@ -60,7 +60,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [FormGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+    <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
       <div class="text-center">
         <img
           [src]="imgSrc"
@@ -79,7 +79,12 @@
           formControlName="image"
           (change)="showPreview($event)"
         />
-        <div class="text-danger" *ngIf="isSubmited && formControls.image.errors?.required">This field is required</div>
+        <div
+          class="text-danger"
+          *ngIf="isSubmited && formControl.image.errors?.required"
+        >
+          This field is required
+        </div>
       </div>
       <div class="form-group">
         <label for="name">Dish Name</label>
@@ -91,7 +96,12 @@
             placeholder="e.g Chips Kuku"
           />
         </div>
-        <div *ngIf="isSubmited && formControls.foodType.errors?.required" class="text-danger" >This field is required</div>
+        <div
+          *ngIf="isSubmited && formControl.foodType.errors?.required"
+          class="text-danger"
+        >
+          This field is required
+        </div>
       </div>
 
       <div class="form-group">
@@ -113,9 +123,21 @@
             </option>
           </select>
         </div>
-        <div *ngIf="isSubmited && formControls.menu_id.errors?.required" class="text-danger" >This field is required</div>
+        <div
+          *ngIf="isSubmited && formControl.menu_id.errors?.required"
+          class="text-danger"
+        >
+          This field is required
+        </div>
       </div>
       <div class="form-group">
+        <!-- <button
+          type="submit"
+          class="btn btn-outline-dark"
+          (click)="modal.close('Save click'); onSubmit(formTemplate.value)"
+        >
+          Submit
+        </button> -->
         <button type="submit" class="btn btn-warning float-right">
           Submit
         </button>
