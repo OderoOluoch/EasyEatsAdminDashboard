@@ -31,19 +31,17 @@
     <div class="customers">
         <div class="card">
             <div class="card-header">
-                <h3>Cuisines</h3>
-
-                <button (click)="open(contentTwo)">Add Cuisines</button>
+                <h3>Menu Detail</h3>
             </div>
             <div class="card-body">
-                <div class="customer">
+                <!-- <div class="customer">
                     <div class="info">
                         <div *ngFor="let cuisine of cuisines, let i = index">
                             <h4> Name : {{cuisine.name}}</h4>
                             <small>Price: {{cuisine.price}} </small>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -94,45 +92,4 @@
 
 
 
-  <ng-template #contentTwo let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Add Cuisine</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form #AddMenuCategoryForm="ngForm" >
-        <div class="form-group">
-          <label for="name">Dish Name</label>
-          <div class="input-group">
-            <input id="waiterName" class="form-control" >
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="name">Dish Price</label>
-          <div class="input-group">
-            <input id="waiterName" class="form-control" >
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="name">Dish Parent Menu</label>
 
-          <div class="input-group">
-            <select class="form-select" aria-label="Default select example" >
-              <option selected>Open this select menu</option>
-              <option *ngFor="let menu of menus, let i = index" value="1">{{menu.name}}</option>
-
-            </select>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-  </ng-template>
-  
-
-  
-  <!-- <pre>{{ closeResult }}</pre> -->

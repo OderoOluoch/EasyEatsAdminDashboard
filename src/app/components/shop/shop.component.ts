@@ -33,8 +33,6 @@ constructor( private dataService: DataService) { }
   ngOnInit(): void {
       this.dataService.apiCallShops().subscribe((response: any) => {
          this.shops =  response;
-         console.log(this.shops);
-
       });
     }
   }
