@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireDatabaseModule } from '@angular/fire/database';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,17 +46,12 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyBMXnSq-4n2iL2QgP4-e6RjNCTwiqxCMxA",
-      authDomain: "easyeatsdashboard.firebaseapp.com",
-      projectId: "easyeatsdashboard",
-      storageBucket: "easyeatsdashboard.appspot.com",
-      messagingSenderId: "760201614501",
-      appId: "1:760201614501:web:c797789332639d90ad294c",
-      measurementId: "G-60PSHNTD1E"
-    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule ,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]
