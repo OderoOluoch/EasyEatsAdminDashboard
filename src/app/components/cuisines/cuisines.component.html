@@ -1,41 +1,40 @@
 <div class="recent-grid">
-    <div class="projects">
-        <div class="card">
-            <div class="card-header">
-                <h3>Manage Cusines</h3>
-                <button (click)="open(content)">Add Cuisine Item</button>
-            </div>
-        
-            <div class="card-body">
-                <div class="table-reponsive">
-                    <table width="100%">
-                        <thead>
-                            <tr>
-                                <td>ID</td>
-                                <td>Cusine Name</td>
-                                <td>Cusine Price</td>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- <tr *ngFor="let menu of menus, let i = index">
+  <div class="projects">
+    <div class="card">
+      <div class="card-header">
+        <h3>Manage Cusines</h3>
+        <button (click)="open(content)">Add Cuisine Item</button>
+      </div>
+
+      <div class="card-body">
+        <div class="table-reponsive">
+          <table width="100%">
+            <thead>
+              <tr>
+                <td>ID</td>
+                <td>Cusine Name</td>
+                <td>Cusine Price</td>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr *ngFor="let menu of menus, let i = index">
                                 <td id= {{i}}>{{menu.id}}</td>
                                 <td>{{menu.name}}</td>
                             </tr> -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="customers">
-        <div class="card">
-            <div class="card-header">
-                <h3>Cuisine Details</h3>
-            </div>
-            <div class="card-body">
-                <!-- <div class="customer">
+  <div class="customers">
+    <div class="card">
+      <div class="card-header">
+        <h3>Cuisine Details</h3>
+      </div>
+      <div class="card-body">
+        <!-- <div class="customer">
                     <div class="info">
                         <div *ngFor="let cuisine of cuisines, let i = index">
                             <h4> Name : {{cuisine.name}}</h4>
@@ -43,71 +42,91 @@
                         </div>
                     </div>
                 </div> -->
-
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
-
-
 
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Add Cuisine</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <form [FormGroup]="formTemplate" >
+    <form [FormGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
       <div class="text-center">
-        <img [src]="imgSrc" width="350px" height="250px"> 
+        <img
+          [src]="imgSrc"
+          width="350px"
+          height="450px"
+          (click)="fileUploader.click()"
+        />
+      </div>
+      <div class="form-group">
+        <label>Select Image file to upload</label>
+        <input
+          type="file"
+          #fileUploader
+          accept="image/*"
+          class="form-control"
+          formControlName="image"
+          (change)="showPreview($event)"
+        />
+        <div class="text-danger" *ngIf="isSubmited && formControls.image.errors?.required">This field is required</div>
       </div>
       <div class="form-group">
         <label for="name">Dish Name</label>
         <div class="input-group">
-          <input type="text"class="form-control" formControlName="foodType" placeholder="e.g Chips Kuku" >
+          <input
+            type="text"
+            class="form-control"
+            formControlName="foodType"
+            placeholder="e.g Chips Kuku"
+          />
         </div>
+        <div *ngIf="isSubmited && formControls.foodType.errors?.required" class="text-danger" >This field is required</div>
       </div>
-      <div class="form-group">
-        <label>Select Image file to upload</label>
-        <input type="file" accept="image/*" class="form-control" formControlName="image" (change)="showPreview($event)">
-        <!-- <div class="text-danger" >This field is required</div> -->
-    </div>
+
       <div class="form-group">
         <label for="name">Dish Price</label>
         <div class="input-group">
-          <input class="form-control" formControlName="price" >
+          <input class="form-control" formControlName="price" />
         </div>
       </div>
       <div class="form-group">
         <label for="name">Dish Parent Menu</label>
         <div class="input-group">
-          <select class="form-select" formControlName="menu_id" >
+          <select class="form-select" formControlName="menu_id">
             <!-- <option selected>Select menu from drop down.</option> -->
-            <option *ngFor="let menu of menus, let i = index" value="{{menu.id}}">{{menu.name}}</option>
+            <option
+              *ngFor="let menu of menus; let i = index"
+              value="{{ menu.id }}"
+            >
+              {{ menu.name }}
+            </option>
           </select>
         </div>
+        <div *ngIf="isSubmited && formControls.menu_id.errors?.required" class="text-danger" >This field is required</div>
       </div>
       <div class="form-group">
-          <button type="submit" class="btn btn-warning float-right">Submit</button>
+        <button type="submit" class="btn btn-warning float-right">
+          Submit
+        </button>
       </div>
-
     </form>
   </div>
   <!-- <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
   </div> -->
 </ng-template>
-  
 
-  
-  <!-- <pre>{{ closeResult }}</pre> -->
+<!-- <pre>{{ closeResult }}</pre> -->
 
-
-
-  
-  
-
-  
-  <!-- <pre>{{ closeResult }}</pre> -->
+<!-- <pre>{{ closeResult }}</pre> -->

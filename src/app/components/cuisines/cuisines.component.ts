@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Cuisine } from 'src/app/models/cuisine';
 import { DataService } from 'src/app/services/data.service';
@@ -19,12 +19,13 @@ export class CuisinesComponent implements OnInit {
   cuisines: any;
   imgSrc:string = "/assets/img/dif.jpg"
   selectedImage:any = null;
+  isSubmited:boolean = false;
 
   formTemplate = new FormGroup({
-    foodType: new FormControl(''),
-    image: new FormControl(''),
-    price: new FormControl(''),
-    menu_id: new FormControl(''),
+    foodType: new FormControl('',Validators.required),
+    image: new FormControl('',Validators.required),
+    price: new FormControl('',Validators.required),
+    menu_id: new FormControl('',Validators.required),
   });
 
   constructor(
@@ -58,6 +59,14 @@ export class CuisinesComponent implements OnInit {
       this.imgSrc = "/assets/img/dif.jpg";
       this.selectedImage = null;
     }
+  }
+
+  onSubmit(formValue){
+    this.isSubmited = true;
+  }
+
+  get formContols(){
+    return this.formTemplate['controls'];
   }
 
   // resetForm(form?: NgForm) {
