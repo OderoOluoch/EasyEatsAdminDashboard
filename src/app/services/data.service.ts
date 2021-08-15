@@ -32,25 +32,25 @@ export class DataService {
   }
 
   apiCallCuisines() {
-    return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/cuisines');
+    return this.http.get(this.BASE_URL +'/api/v1/cuisines');
   }
 
 
   apiCallShops() {
-    return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/shops');
+    return this.http.get(this.BASE_URL +'/api/v1/shops');
   }
 
   apiCallwaiters() {
-    return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/waiters');
+    return this.http.get(this.BASE_URL + '/api/v1/waiters');
   }
 
   apiCallMenus() {
-    return this.http.get('https://easyeatsodero.herokuapp.com/api/v1/menus');
+    return this.http.get( this.BASE_URL +'/api/v1/menus');
   }
 
   addWaiter(createResourse) {
     return this.HttpClient.post(
-      'https://easyeatsodero.herokuapp.com/api/v1/waiters/new',
+      this.BASE_URL +'/api/v1/waiters/new',
       createResourse
     );
   }
