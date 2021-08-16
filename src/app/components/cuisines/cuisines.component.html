@@ -17,10 +17,11 @@
               </tr>
             </thead>
             <tbody>
-              <!-- <tr *ngFor="let menu of menus, let i = index">
-                                <td id= {{i}}>{{menu.id}}</td>
-                                <td>{{menu.name}}</td>
-                            </tr> -->
+              <tr *ngFor="let cuisine of cuisines, let i = index">
+                                <td id= {{i}}>{{cuisine.id}}</td>
+                                <td>{{cuisine.food}}</td>
+                                <td>{{cuisine.price}} KSh</td>
+                            </tr>
             </tbody>
           </table>
         </div>
