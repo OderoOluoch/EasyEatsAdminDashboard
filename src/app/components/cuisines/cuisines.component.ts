@@ -25,7 +25,7 @@ export class CuisinesComponent implements OnInit {
   isSubmited: boolean;
 
   formTemplate = new FormGroup({
-    foodType: new FormControl('', Validators.required),
+    food: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
     price: new FormControl('', Validators.required),
     menu_id: new FormControl('', Validators.required),
@@ -96,7 +96,7 @@ export class CuisinesComponent implements OnInit {
   resetForm() {
     this.formTemplate.reset();
     this.formTemplate.setValue({
-      foodType: '',
+      food: '',
       image: '',
       price: null,
       menu_id: 1,

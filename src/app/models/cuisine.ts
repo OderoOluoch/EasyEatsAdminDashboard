@@ -1,5 +1,5 @@
 export class Cuisine {
-    foodType?:string;
+    food?:string;
     price?:number;
     menu_id?:number;
   }

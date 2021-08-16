@@ -60,6 +60,20 @@ export class DataService {
       );
   }
 
+
+
+  addShopOutlet(form:any){
+    console.log("Consoling from service place "+form);
+    return this.http.post(this.BASE_URL + '/api/v1/shops/new', form).subscribe(
+      (res: any) => {
+       console.log("New Cuisine response "+res)
+      },
+      (err: HttpErrorResponse) => {
+       console.log("New Cuisine Error " +err.message)
+      }
+    );
+}
+
   addWaiter(createResourse) {
     return this.HttpClient.post(
       this.BASE_URL +'/api/v1/waiters/new',
