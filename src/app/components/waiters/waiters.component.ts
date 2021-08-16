@@ -27,6 +27,8 @@ export class WaitersComponent implements OnInit {
     });
   }
 
+  onSubmitWaiter(){}
+
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
