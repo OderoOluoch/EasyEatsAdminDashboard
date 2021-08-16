@@ -6,7 +6,6 @@
         <button (click)="open(content)">Add Outlet</button>
       </div>
     </div>
-
     <div class="card">
       <div class="card-header">
         <h3>Register a Table</h3>
@@ -47,7 +46,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #AddMenuCategoryForm="ngForm">
+    <form #RegisterOutlet="ngForm">
       <div class="form-group">
         <label for="name">Outlet Name</label>
         <div class="input-group">
@@ -56,11 +55,41 @@
             class="form-control"
             name="name"
             #name="ngModel"
-            [(ngModel)]="menu.name"
+            [(ngModel)]="shop.name"
             required
           />
         </div>
       </div> 
+      <div class="form-group">
+        <label for="name">Outlet Tagline</label>
+        <div class="input-group">
+          <input
+            id="waiterName"
+            class="form-control"
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="shop.name"
+            required
+          />
+        </div>
+      </div> 
+      <div class="form-group">
+        <label>Outlet Profile</label>
+        <input
+          type="file"
+          #fileUploader
+          accept="image/*"
+          class="form-control"
+          formControlName="image"
+          (change)="showPreview($event)"
+        />
+        <div
+          class="text-danger"
+          *ngIf="isSubmited && formControl.image.errors?.required"
+        >
+          This field is required
+        </div>
+      </div>
     </form>
   </div>
   <div class="modal-footer">
@@ -69,8 +98,7 @@
       type="submit"
       class="btn btn-outline-dark"
       (click)="
-        modal.close('Save click');
-        saveMenuCategury(name.value, description.value, shop_id.value)
+        modal.close('Save click');registerOutlet(name.value)
       "
     >
       Submit

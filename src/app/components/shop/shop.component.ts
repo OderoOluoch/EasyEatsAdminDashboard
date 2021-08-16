@@ -30,6 +30,9 @@ export class ShopComponent implements OnInit {
    
   }
 
+  registerOutlet(name:string){
+    console.log(name);
+  }
   open(content) {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
