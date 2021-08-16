@@ -74,10 +74,14 @@ export class DataService {
     );
 }
 
-  addWaiter(createResourse) {
-    return this.HttpClient.post(
+  addWaiter(createResourse : any) {
+    return this.http.post(
       this.BASE_URL +'/api/v1/waiters/new',
       createResourse
-    );
+    ).subscribe((res:any)=>{
+      console.log(res);
+    },(err:HttpErrorResponse) =>{
+      console.log(err.message)
+    });
   }
 }

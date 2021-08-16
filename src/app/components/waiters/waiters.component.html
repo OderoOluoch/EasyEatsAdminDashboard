@@ -70,48 +70,55 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #AddMenuCategoryForm="ngForm" >
+    <form [formGroup]="formTemplate">
       <div class="form-group">
         <label for="name">Waiter Name</label>
         <div class="input-group">
           <input
-            id="waiterName"
+            type="text"
             class="form-control"
-            name="name"
-            #name="ngModel"
-            [(ngModel)]="menu.name"
-            required
+            formControlName="name"
+            placeholder="e.g Mary Atieno"
           />
+        </div>
+        <div
+          *ngIf="isSubmited && formControl.foodType.errors?.required"
+          class="text-danger"
+        >
+          This field is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Shop Assigned</label>
+        <div class="input-group">
+          <select class="form-select" formControlName="shop_id">
+            <!-- <option selected>Select menu from drop down.</option> -->
+            <option
+              *ngFor="let shop of shops; let i = index"
+              value="{{ shop.id }}"
+            >
+              {{ shop.name }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="isSubmited && formControl.menu_id.errors?.required"
+          class="text-danger"
+        >
+          This field is required
         </div>
       </div>
       <div class="form-group">
-        <label for="name">Your Shop Name</label>
-        <select
-          class="form-select"
-          aria-label="Default select example"
-          name="shop_id"
-          #shop_id="ngModel"
-          [(ngModel)]="menu.shop_id"
+        <button
+          type="submit"
+          class="btn btn-outline-dark"
+          (click)="modal.close('Save click'); onSubmitWaiter(formTemplate.value)"
         >
-          <option selected>Slect your shop name</option>
-          <option
-            *ngFor="let shop of shops; let i = index"
-            value="{{ shop.id }}"
-          >
-            {{ shop.name }}
-          </option>
-        </select>
+          Submit
+        </button>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-    >
-      Save
-    </button>
   </div>
 </ng-template>
 

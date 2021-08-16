@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -12,12 +13,21 @@ export class WaitersComponent implements OnInit {
   waiters: any;
   shops: any;
 
+
+  isSubmited: boolean;
+
+  formTemplate = new FormGroup({
+    name: new FormControl('', Validators.required),
+    shop_id: new FormControl('', Validators.required),
+  });
+
   constructor(
     private modalService: NgbModal,
     private dataService: DataService
   ) {}
 
   ngOnInit(): void {
+    this.resetForm();
     this.dataService.apiCallwaiters().subscribe((response: any) => {
       this.waiters = response;
     });
@@ -25,6 +35,25 @@ export class WaitersComponent implements OnInit {
     this.dataService.apiCallShops().subscribe((response: any) => {
       this.shops = response;
     });
+  }
+
+  onSubmitWaiter(formValue){
+    this.dataService.addWaiter(formValue); 
+  }
+
+
+  get formControl() {
+    return this.formTemplate['controls'];
+  }
+
+  resetForm() {
+    this.formTemplate.reset();
+    this.formTemplate.setValue({
+      name: '',
+      shop_id: 1
+    });
+    this.isSubmited = false;
+
   }
 
   open(content) {
