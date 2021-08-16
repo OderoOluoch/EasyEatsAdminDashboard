@@ -67,7 +67,7 @@ export class ShopComponent implements OnInit {
           finalize(() => {
             fileRef.getDownloadURL().subscribe((url) => {
               formValue['image'] = url;
-              this.dataService.addCuisine(formValue);
+              this.dataService.addShopOutlet(formValue);
               console.log("What is inside this form "+formValue['image'])
             });
           })
