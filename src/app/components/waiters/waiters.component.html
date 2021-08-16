@@ -103,15 +103,55 @@
         </select>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-    >
-      Save
-    </button>
+    <form [formGroup]="formTemplate">
+      <div class="form-group">
+        <label for="name">Waiter Name</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            placeholder="e.g Chips Kuku"
+          />
+        </div>
+        <div
+          *ngIf="isSubmited && formControl.foodType.errors?.required"
+          class="text-danger"
+        >
+          This field is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Dish Parent Menu</label>
+        <div class="input-group">
+          <select class="form-select" formControlName="menu_id">
+            <!-- <option selected>Select menu from drop down.</option> -->
+            <option
+              *ngFor="let menu of menus; let i = index"
+              value="{{ menu.id }}"
+            >
+              {{ menu.name }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="isSubmited && formControl.menu_id.errors?.required"
+          class="text-danger"
+        >
+          This field is required
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-outline-dark"
+          (click)="modal.close('Save click'); onSubmit(formTemplate.value)"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
   </div>
 </ng-template>
 
