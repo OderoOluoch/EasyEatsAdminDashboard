@@ -24,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ShopComponent } from './components/shop/shop.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CuisinesDetailComponent } from './cuisines-detail/cuisines-detail.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     LoginComponent,
     ShopComponent,
+    CuisinesDetailComponent,
 
   ],
   imports: [

@@ -31,6 +31,11 @@ export class CuisinesComponent implements OnInit {
     menu_id: new FormControl('', Validators.required),
   });
 
+  // tslint:disable-next-line:typedef
+  toggleDetails(index){
+    this.cuisines[index].showDescription = !this.cuisines[index].showDescription;
+  }
+
   constructor(
     private modalService: NgbModal,
     private storage: AngularFireStorage,
